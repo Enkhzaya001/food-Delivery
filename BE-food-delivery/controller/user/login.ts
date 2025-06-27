@@ -17,7 +17,13 @@ export const login = async (request: Request, response: Response) => {
     const tokenPassword = "foodDelivery";
     if (hashedPassword) {
       // {expiresIn: "3s"}
-      const token = jwt.sign({ userId: isEmailExisted._id }, tokenPassword);
+      const token = jwt.sign(
+        {
+          userId: isEmailExisted._id,
+          isAdmin: isEmailExisted.role === "ADMIN" ? true : false,
+        },
+        tokenPassword
+      );
       response.status(200).send({ message: "Successfully logged in", token });
       return;
     } else {

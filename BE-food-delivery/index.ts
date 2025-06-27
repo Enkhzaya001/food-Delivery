@@ -4,6 +4,8 @@ import cors from "cors";
 import { UserRouter } from "./router/user.router";
 import { foodCategoryRouter } from "./router/foodCategory.router";
 import { foodRouter } from "./router/food.router";
+import { OrderRouter } from "./router/order.router";
+import { adminRouter } from "./router/admin.router";
 
 const crypto = require("crypto");
 const dataBaseConnection = async () => {
@@ -27,6 +29,8 @@ dataBaseConnection();
 app.use(UserRouter);
 app.use(foodCategoryRouter);
 app.use(foodRouter);
+app.use(OrderRouter);
+app.use(adminRouter);
 
 app.listen(8000, () => {
   console.log(`running on http://localhost:8000`);

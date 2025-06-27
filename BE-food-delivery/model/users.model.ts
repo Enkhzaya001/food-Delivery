@@ -13,7 +13,7 @@ export type User = {
   updatedAt: Date;
 };
 
-enum UserRoleEnum {
+export enum UserRoleEnum {
   USER = "USER",
   ADMIN = "ADMIN",
 }
@@ -26,6 +26,7 @@ const Users = new Schema<User>({
     type: String,
     enum: Object.values(UserRoleEnum),
     required: false,
+    default: UserRoleEnum.USER,
   },
   isVerified: { type: Boolean, required: false },
 
