@@ -25,13 +25,23 @@ export function FoodsEdit({
   price,
   _id,
 }: FoodProps) {
-  const [foodNameVal, setFoodNameVal] = useState("");
+  const [foodNameVal, setFoodNameVal] = useState(foodName);
+  const [foodCategory, setFoodCategory] = useState(category);
+  const [foodIngredients, setFoodIngredients] = useState(ingredients);
+  const [foodPrice, setFoodPrice] = useState(price);
+
   const updateFoods = async () => {
     const token = localStorage.getItem("token");
     try {
       await axios.put(
         "https://food-delivery-be-food-delivery.onrender.com/admin/menu/update",
-        { foodName: foodNameVal, _id },
+        {
+          foodName: foodNameVal,
+          category: foodCategory,
+          ingredients: foodIngredients,
+          price: foodPrice,
+          _id,
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -39,7 +49,6 @@ export function FoodsEdit({
         }
       );
       console.log("up");
-      setFoodNameVal("");
     } catch (err) {
       console.log(err);
     }
@@ -63,26 +72,36 @@ export function FoodsEdit({
                 id="name"
                 value={foodNameVal}
                 onChange={(e) => setFoodNameVal(e.target.value)}
-                defaultValue={foodName}
+                defaultValue={foodNameVal}
               />
             </div>
             <div className="grid gap-1">
               <Label htmlFor="category">Dish category</Label>
-              <div className="w-fit px-3 py-1 bg-gray-100 rounded-full text-sm font-medium">
-                {category}
-              </div>
+              <Input
+                id="name"
+                value={foodCategory}
+                onChange={(e) => setFoodCategory(e.target.value)}
+                defaultValue={foodCategory}
+              />
             </div>
             <div className="grid gap-1">
               <Label htmlFor="ingredients">Ingredients</Label>
               <textarea
                 id="ingredients"
-                defaultValue={ingredients}
+                value={foodIngredients}
+                onChange={(e) => setFoodIngredients(e.target.value)}
+                defaultValue={foodIngredients}
                 className="border rounded px-3 py-2 min-h-[60px]"
               />
             </div>
             <div className="grid gap-1 relative">
               <Label htmlFor="price">Price</Label>
-              <Input id="price" defaultValue={price} />
+              <Input
+                type="number"
+                defaultValue={price}
+                value={foodPrice}
+                onChange={(e) => setFoodPrice(parseFloat(e.target.value))}
+              />
             </div>
             <div className="grid gap-1">
               <Label>Image</Label>
@@ -108,9 +127,11 @@ export function FoodsEdit({
               <DialogClose asChild>
                 <Button variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit" onClick={updateFoods}>
-                Save changes
-              </Button>
+              <DialogClose>
+                <Button type="submit" onClick={updateFoods}>
+                  Save changes
+                </Button>
+              </DialogClose>
             </div>
           </div>
         </DialogContent>
