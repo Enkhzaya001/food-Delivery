@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,8 +12,38 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Pencil, Trash2, X } from "lucide-react";
 import Image from "next/image";
+import { FoodProps } from "./MenuSection";
+import axios from "axios";
+import { headers } from "next/headers";
+import { useState } from "react";
 
-export function FoodsEdit() {
+export function FoodsEdit({
+  foodName,
+  category,
+  image,
+  ingredients,
+  price,
+  _id,
+}: FoodProps) {
+  const [foodNameVal, setFoodNameVal] = useState("");
+  const updateFoods = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      await axios.put(
+        "https://food-delivery-be-food-delivery.onrender.com/admin/menu/update",
+        { foodName: foodNameVal, _id },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("up");
+      setFoodNameVal("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <Dialog>
       <form>
@@ -28,39 +59,35 @@ export function FoodsEdit() {
           <div className=" grid gap-4 py-2">
             <div className="grid gap-1">
               <Label htmlFor="name">Dish name</Label>
-              <Input id="name" defaultValue="Brie Crostini Appetizer" />
+              <Input
+                id="name"
+                value={foodNameVal}
+                onChange={(e) => setFoodNameVal(e.target.value)}
+                defaultValue={foodName}
+              />
             </div>
             <div className="grid gap-1">
               <Label htmlFor="category">Dish category</Label>
               <div className="w-fit px-3 py-1 bg-gray-100 rounded-full text-sm font-medium">
-                Appetizer
+                {category}
               </div>
             </div>
             <div className="grid gap-1">
               <Label htmlFor="ingredients">Ingredients</Label>
               <textarea
                 id="ingredients"
-                defaultValue="Fluffy pancakes stacked with fruits."
+                defaultValue={ingredients}
                 className="border rounded px-3 py-2 min-h-[60px]"
               />
             </div>
             <div className="grid gap-1 relative">
               <Label htmlFor="price">Price</Label>
-              <Input id="price" defaultValue="$12.99" />
-              {/* purple guide box, optional */}
-              <div className="absolute top-[55%] left-[60%] text-xs bg-purple-500 text-white px-2 py-0.5 rounded">
-                288 × Fill (36)
-              </div>
+              <Input id="price" defaultValue={price} />
             </div>
             <div className="grid gap-1">
               <Label>Image</Label>
               <div className="relative w-[288px] h-[120px] rounded overflow-hidden">
-                <Image
-                  src="/your-image.jpg" // Replace with your image path
-                  alt="Dish"
-                  layout="fill"
-                  objectFit="cover"
-                />
+                <Image src={image} alt="Dish" layout="fill" objectFit="cover" />
                 <button
                   type="button"
                   className="absolute top-1 right-1 bg-white rounded-full p-1 shadow"
@@ -81,7 +108,9 @@ export function FoodsEdit() {
               <DialogClose asChild>
                 <Button variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Save changes</Button>
+              <Button type="submit" onClick={updateFoods}>
+                Save changes
+              </Button>
             </div>
           </div>
         </DialogContent>

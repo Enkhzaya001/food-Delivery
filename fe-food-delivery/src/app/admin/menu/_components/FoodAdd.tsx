@@ -17,7 +17,7 @@ import { Plus } from "lucide-react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import axios from "axios";
-import { Food } from "./MenuSection";
+import { FoodProps } from "./MenuSection";
 
 interface Props {
   categoryName: string;

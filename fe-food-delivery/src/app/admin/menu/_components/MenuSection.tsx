@@ -8,16 +8,17 @@ import { CategoryAdd } from "./CategoryAdd";
 import { FoodAdd } from "./FoodAdd";
 import { FoodsEdit } from "./FoodsEdit";
 
-export type Food = {
+export type FoodProps = {
   foodName: string;
   image: string;
   ingredients: string;
   price: number;
   _id: string;
+  category: string;
 };
 
 export function MenuSection() {
-  const [foods, setFoods] = useState<Record<string, Food[]>>({});
+  const [foods, setFoods] = useState<Record<string, FoodProps[]>>({});
   const [selectedCategory, setSelectedCategory] =
     useState<string>("All Dishes");
 
@@ -27,7 +28,7 @@ export function MenuSection() {
         const result = await axios.get(
           "https://food-delivery-be-food-delivery.onrender.com/foods"
         );
-        setFoods(result.data.foods as Record<string, Food[]>);
+        setFoods(result.data.foods as Record<string, FoodProps[]>);
       } catch (error) {
         console.error("Failed to fetch foods:", error);
       }
@@ -109,7 +110,14 @@ export function MenuSection() {
                 </p>
               </CardContent>
               <div>
-                <FoodsEdit />
+                <FoodsEdit
+                  category={food.category}
+                  foodName={food.foodName}
+                  _id={food._id}
+                  image={food.image}
+                  ingredients={food.ingredients}
+                  price={food.price}
+                />
               </div>
             </Card>
           ))}
