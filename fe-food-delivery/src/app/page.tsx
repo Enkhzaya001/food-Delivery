@@ -19,7 +19,9 @@ export default function Home() {
   useEffect(() => {
     const datafetch = async () => {
       try {
-        const result = await axios.get("http://localhost:8000/foods");
+        const result = await axios.get(
+          "https://food-delivery-be-food-delivery.onrender.com/foods"
+        );
         setFoods(result.data.foods as Foods); // Cast to correct type
         console.log(result.data.foods);
       } catch (error) {
@@ -58,7 +60,7 @@ export default function Home() {
 //   const [foods, setFoods] = useState<Foods | null>(null);
 //   useEffect(() => {
 //     const datafetch = async () => {
-//       const result = await axios.get("http://localhost:8000/foods");
+//       const result = await axios.get("https://food-delivery-be-food-delivery.onrender.com/foods");
 //       setFoods(result.data.foods);
 //       console.log(result.data.foods);
 //     };

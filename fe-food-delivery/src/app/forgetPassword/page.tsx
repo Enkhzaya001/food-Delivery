@@ -83,7 +83,7 @@ export default function forgetPasswordPagev() {
     onSubmit: async (values) => {
       try {
         const response = await axios.put(
-          "http://localhost:8000/updatePassword",
+          "https://food-delivery-be-food-delivery.onrender.com/updatePassword",
           {
             email: values.email,
             password: values.password,

@@ -32,9 +32,12 @@ export const Step1EnterEmail = ({
     setLoading(true);
     console.log("hi");
     try {
-      const response = await axios.post("http://localhost:8000/sendOtp", {
-        email: values.email,
-      });
+      const response = await axios.post(
+        "https://food-delivery-be-food-delivery.onrender.com/sendOtp",
+        {
+          email: values.email,
+        }
+      );
       console.log(response);
       if (response.data === "Otp sent") {
         handleNext();

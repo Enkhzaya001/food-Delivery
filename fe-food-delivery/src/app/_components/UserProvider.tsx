@@ -31,9 +31,12 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const tokenChecker = async (token: string) => {
     try {
-      const response = await axios.post("http://localhost:8000/verify", {
-        token,
-      });
+      const response = await axios.post(
+        "https://food-delivery-be-food-delivery.onrender.com/verify",
+        {
+          token,
+        }
+      );
       setUser({
         userId: response.data.destructToken.userId,
         isAdmin: response.data.destructToken.isAdmin,

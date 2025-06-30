@@ -23,7 +23,7 @@ export function CategoryAdd() {
     const token = window?.localStorage?.getItem("token");
 
     await axios.post(
-      "http://localhost:8000/createCategory",
+      "https://food-delivery-be-food-delivery.onrender.com/createCategory",
       { categoryName: inputValue },
       {
         headers: {

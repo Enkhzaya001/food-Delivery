@@ -28,7 +28,7 @@
 //       const token = window?.localStorage?.getItem("token");
 
 //       const response: any = await axios.get(
-//         "http://localhost:8000/categories",
+//         "https://food-delivery-be-food-delivery.onrender.com/categories",
 //         {
 //           headers: {
 //             Authorization: Bearer ${token},
@@ -45,7 +45,7 @@
 //   useEffect(() => {
 //     const datafetch = async () => {
 //       try {
-//         const result = await axios.get("http://localhost:8000/foods");
+//         const result = await axios.get("https://food-delivery-be-food-delivery.onrender.com/foods");
 //         setFoods(result.data.foods as Record<string, Food[]>);
 //       } catch (error) {
 //         console.error("Failed to fetch foods:", error);

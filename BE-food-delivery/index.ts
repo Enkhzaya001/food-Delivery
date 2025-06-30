@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(cors()); // бүх origin зөвшөөрнө
 // эсвэл зөвхөн тодорхой origin зөвшөөрөх
-// app.use(cors({ origin: 'http://localhost:8000' }));
+// app.use(cors({ origin: 'https://food-delivery-be-food-delivery.onrender.com' }));
 
 dataBaseConnection();
 
@@ -33,7 +33,7 @@ app.use(OrderRouter);
 app.use(adminRouter);
 
 app.listen(8000, () => {
-  console.log(`running on http://localhost:8000`);
+  console.log(`running on https://food-delivery-be-food-delivery.onrender.com`);
 });
 
 // app.get("/users", async (_request:Request, response:Response)=>{

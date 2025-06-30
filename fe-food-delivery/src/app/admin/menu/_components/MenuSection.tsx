@@ -24,7 +24,9 @@ export function MenuSection() {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const result = await axios.get("http://localhost:8000/foods");
+        const result = await axios.get(
+          "https://food-delivery-be-food-delivery.onrender.com/foods"
+        );
         setFoods(result.data.foods as Record<string, Food[]>);
       } catch (error) {
         console.error("Failed to fetch foods:", error);

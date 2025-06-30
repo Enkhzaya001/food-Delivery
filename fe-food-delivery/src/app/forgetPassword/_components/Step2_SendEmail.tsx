@@ -24,10 +24,13 @@ export const Step2SendEmail = ({
 
   const checkOtp = async (valuesOtp: string) => {
     try {
-      const response = await axios.post("http://localhost:8000/checkOtp", {
-        code: valuesOtp,
-        email: values.email,
-      });
+      const response = await axios.post(
+        "https://food-delivery-be-food-delivery.onrender.com/checkOtp",
+        {
+          code: valuesOtp,
+          email: values.email,
+        }
+      );
       console.log(response, "wrong code");
       handleNext();
     } catch (err: any) {

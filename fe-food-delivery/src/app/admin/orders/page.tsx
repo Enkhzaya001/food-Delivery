@@ -23,7 +23,7 @@ const OrderHomePage = () => {
       const token = window?.localStorage?.getItem("token");
 
       const response: any = await axios.get(
-        "http://localhost:8000/admin/getAllOrders",
+        "https://food-delivery-be-food-delivery.onrender.com/admin/getAllOrders",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -73,7 +73,7 @@ const OrderHomePage = () => {
 
     try {
       await axios.put(
-        "http://localhost:8000/admin/order/update",
+        "https://food-delivery-be-food-delivery.onrender.com/admin/order/update",
         {
           orders: prepare,
         },
@@ -131,7 +131,7 @@ export default OrderHomePage;
 //     const token = localStorage.getItem("token");
 //     const getAdminOrders = async () => {
 //       const { data } = await axios.get(
-//         "http://localhost:8000/admin/getAllOrders",
+//         "https://food-delivery-be-food-delivery.onrender.com/admin/getAllOrders",
 //         {
 //           headers: {
 //             Authorization: `Bearer ${token}`,

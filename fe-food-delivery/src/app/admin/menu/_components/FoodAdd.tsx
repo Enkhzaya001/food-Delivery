@@ -99,7 +99,7 @@ export function FoodAdd({ categoryName }: Props) {
               }
               console.log(values, imageUrl);
               const res = await axios.post(
-                "http://localhost:8000/addFood",
+                "https://food-delivery-be-food-delivery.onrender.com/addFood",
                 {
                   foodName: values.foodName,
                   price: Number(values.price),
