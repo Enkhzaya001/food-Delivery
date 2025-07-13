@@ -46,40 +46,40 @@ export function FoodsEdit({
 
   const dialogCloseRef = useRef<HTMLButtonElement>(null);
 
-  const updateFoods = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const token = localStorage.getItem("token");
-    console.log({
-      _id,
-      foodName: foodNameVal,
-      ingredients: foodIngredients,
-      price: foodPrice,
-    });
-    try {
-      await axios.put(
-        "https://food-delivery-be-food-delivery.onrender.com/admin/menu/update",
-        {
-          _id,
-          foodName: foodNameVal,
-          category: foodCategory,
-          ingredients: foodIngredients,
-          price: foodPrice,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (dialogCloseRef.current) dialogCloseRef.current.click();
+  // const updateFoods = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   const token = localStorage.getItem("token");
+  //   console.log({
+  //     _id,
+  //     foodName: foodNameVal,
+  //     ingredients: foodIngredients,
+  //     price: foodPrice,
+  //   });
+  //   try {
+  //     await axios.put(
+  //       "https://food-delivery-be-food-delivery.onrender.com/admin/menu/update",
+  //       {
+  //         _id,
+  //         foodName: foodNameVal,
+  //         category: foodCategory,
+  //         ingredients: foodIngredients,
+  //         price: foodPrice,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       }
+  //     );
+  //     if (dialogCloseRef.current) dialogCloseRef.current.click();
 
-      console.log("Updated successfully");
-    } catch (err) {
-      console.error("Update error:", err);
-    }
-    setLoading(false);
-  };
+  //     console.log("Updated successfully");
+  //   } catch (err) {
+  //     console.error("Update error:", err);
+  //   }
+  //   setLoading(false);
+  // };
 
   const deleteFoodHandler = async () => {
     const token = localStorage.getItem("token");
@@ -112,7 +112,7 @@ export function FoodsEdit({
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">Dishes info</DialogTitle>
         </DialogHeader>
-        <form onSubmit={updateFoods}>
+        <form>
           <div className="grid gap-4 py-2">
             <div className="grid gap-1">
               <Label htmlFor="name">Dish name</Label>
@@ -190,8 +190,9 @@ export function FoodsEdit({
               <DialogClose asChild>
                 <button ref={dialogCloseRef} style={{ display: "none" }} />
               </DialogClose>
-
-              <Button type="submit">Save changes</Button>
+              <DialogClose asChild>
+                <Button type="submit">Continue</Button>
+              </DialogClose>
             </div>
           </div>
         </form>

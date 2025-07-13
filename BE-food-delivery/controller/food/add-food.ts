@@ -9,6 +9,7 @@ export const addFood = async (req: Request, res: Response) => {
     const foodCategory = await FoodCategoryModel.findOne({
       categoryName: category,
     });
+
     if (!foodCategory) {
       res.status(401).send("Category not found");
       return;
