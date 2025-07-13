@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { UserModel } from "../../model/users.model";
 
 export const verify = async (
   request: Request,
@@ -10,6 +11,7 @@ export const verify = async (
   const tokenPassword = "foodDelivery";
   try {
     const isValid = jwt.verify(token, tokenPassword);
+    const email = await UserModel.findOne;
     if (isValid) {
       const destructToken: any = jwt.decode(token);
       response.status(200).send({ destructToken });
