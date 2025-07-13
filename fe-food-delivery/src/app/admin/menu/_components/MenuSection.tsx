@@ -14,7 +14,7 @@ export type FoodProps = {
   ingredients: string;
   price: number;
   _id: string;
-  category: string;
+  category: string[];
 };
 
 export function MenuSection() {
@@ -35,7 +35,7 @@ export function MenuSection() {
     };
     fetchFoods();
   }, []);
-  console.log(foods);
+  console.log(foods, "hool");
 
   const allDishes = Object.values(foods).flat();
   const categories = Object.keys(foods);
@@ -43,6 +43,8 @@ export function MenuSection() {
     selectedCategory === "All Dishes"
       ? allDishes
       : foods[selectedCategory] || [];
+
+  console.log(dishesToShow, "dish");
 
   return (
     <div className="p-6 space-y-6">
@@ -61,7 +63,7 @@ export function MenuSection() {
             All Dishes ({allDishes.length})
           </button>
 
-          {categories.map((cat) => (
+          {categories.toSorted().map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
@@ -74,12 +76,10 @@ export function MenuSection() {
               {cat} ({foods[cat].length})
             </button>
           ))}
-
           <CategoryAdd />
         </div>
       </div>
 
-      {/* Food Cards */}
       <div className="space-y-3">
         <p className="text-xl font-semibold">
           {selectedCategory} ({dishesToShow.length})
@@ -109,16 +109,14 @@ export function MenuSection() {
                   {food.ingredients}
                 </p>
               </CardContent>
-              <div>
-                <FoodsEdit
-                  category={food.category}
-                  foodName={food.foodName}
-                  _id={food._id}
-                  image={food.image}
-                  ingredients={food.ingredients}
-                  price={food.price}
-                />
-              </div>
+              <FoodsEdit
+                category={categories}
+                foodName={food.foodName}
+                _id={food._id}
+                image={food.image}
+                ingredients={food.ingredients}
+                price={food.price}
+              />
             </Card>
           ))}
         </div>

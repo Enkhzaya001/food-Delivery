@@ -7,6 +7,7 @@ import { LoginPage } from "./_components/LoginPage";
 import { useState } from "react";
 import { redirect, useRouter } from "next/navigation";
 import { useAuth } from "../_components/UserProvider";
+
 const validationSchemaLogin = Yup.object({
   email: Yup.string()
     .required()

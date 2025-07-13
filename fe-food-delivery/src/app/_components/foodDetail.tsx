@@ -89,8 +89,8 @@ export const FoodDetail = ({
     }
 
     setCart(updatedCart);
+    toast.success(" Сагсанд амжиллттай нэмлээ");
 
-    // saveUnitData();
     deleteCount();
     setOpen(false);
   };

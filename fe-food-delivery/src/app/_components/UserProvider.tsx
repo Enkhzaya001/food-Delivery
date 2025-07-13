@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         isAdmin: response.data.destructToken.isAdmin,
       });
     } catch (err) {
-      redirect("/login");
+      redirect("/");
     }
   };
 

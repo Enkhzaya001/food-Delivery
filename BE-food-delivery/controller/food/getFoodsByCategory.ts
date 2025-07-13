@@ -25,6 +25,7 @@ export const getFoodsByCategory = async (
           $push: {
             _id: "$_id",
             foodName: "$foodName",
+            category: "$category",
             image: "$image",
             price: "$price",
             ingredients: "$ingredients",

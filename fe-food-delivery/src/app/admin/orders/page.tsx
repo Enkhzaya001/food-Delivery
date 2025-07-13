@@ -38,7 +38,7 @@ const OrderHomePage = () => {
   const data: OrderType[] = order.map((el: any, index) => ({
     id: el._id,
     number: index + 1,
-    customer: `${el.user.email}`,
+    customer: `${el.user?.email}`,
     food: `${el.foodOrderItems?.length || 0} hool`,
     date: format(new Date(el.createdAt), "yyyy-MM-dd"),
     total: el.totalPrice,
