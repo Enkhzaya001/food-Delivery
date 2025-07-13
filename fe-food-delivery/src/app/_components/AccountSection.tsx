@@ -66,7 +66,7 @@ const AccountLoggedUser = () => {
 
       try {
         const res = await axios.get(
-          "https://food-delivery-be-food-delivery.onrender.com/getProfile",
+          "https://food-delivery-be-food-delivery.onrender.com/getUser",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -74,7 +74,7 @@ const AccountLoggedUser = () => {
           }
         );
         setEmail(res.data.email);
-        console.log(res.data);
+        console.log(res.data.email, "i");
       } catch (err) {
         console.error("Error loading profile:", err);
       }
@@ -83,16 +83,14 @@ const AccountLoggedUser = () => {
     fetchProfile();
   }, []);
   return (
-    <div className=" mt-40 mr-[45px] h-[100px]  absolute z-1 p-2 rounded-2xl bg-gradient-to-br from-red-500 to-black  ">
+    <div className=" mt-40 mr-[45px] h-[110px]  absolute z-1 rounded-xl bg-gradient-to-br from-red-500 to-black  ">
       <div className="text-center text-[15px] mt-1 p-2">
-        {email && (
-          <p className="mt-2 text-gray-700 text-sm">Logged in as: {email}</p>
-        )}
+        {email && <p className="mt-2 text-white text-sm"> {email}</p>}
       </div>
       <div className="flex justify-center gap-2 p-2">
         <Button
           onClick={logOut}
-          className=" py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition"
+          className=" p-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition"
         >
           Log out
         </Button>

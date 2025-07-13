@@ -83,12 +83,12 @@ export const OrderComplete = () => {
                     </div>
 
                     <div className="text-gray-600 text-sm space-y-1">
-                      {order.foodOrderItems.map((item, index) => (
+                      {order?.foodOrderItems?.map((item, index) => (
                         <div
                           key={index}
                           className="flex items-center justify-between"
                         >
-                          <p>🤩 {item.food.foodName}</p>
+                          <p>🤩 {item?.food?.foodName}</p>
                           <span>x {item.quantity}</span>
                         </div>
                       ))}

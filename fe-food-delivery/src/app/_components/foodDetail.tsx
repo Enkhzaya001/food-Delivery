@@ -117,7 +117,7 @@ export const FoodDetail = ({
                   alt="gg"
                   width={300}
                   height={60}
-                  className="h-full"
+                  className="h-full p-2 rounded-md"
                 />
               </div>
               <div className="mt-10 w-1/2 flex flex-col justify-between">

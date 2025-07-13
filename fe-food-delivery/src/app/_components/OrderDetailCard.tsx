@@ -19,13 +19,13 @@ export const OrderDetailCard = ({
 }: OrderType) => {
   return (
     <div>
-      <div className=" w-full  flex  p-2 gap-4 border-b-2 border-dashed mb-2 bg-amber-200 container ">
+      <div className=" w-full  flex  p-3 gap-4 border-b-2 border-dashed mb-2 bg-white border shadow-xl  container ">
         <Image
           src={image}
           alt="op"
           width={200}
-          height={200}
-          className="w-1/2 rounded-2xl"
+          height={150}
+          className="w-1/2 rounded-2xl py-3"
         />
         <div className="mb-3">
           <div className="flex justify-between container p-2 ">
@@ -33,7 +33,7 @@ export const OrderDetailCard = ({
             <button
               value={index}
               onClick={() => deleteOrder(id)}
-              className="w-[30px] h-[30px] rounded-full border border-solid border-red-400 text-red-500"
+              className="w-[30px] h-[30px] rounded-full border border-solid border-red-400 text-red-500 px-2"
             >
               X
             </button>

@@ -184,9 +184,13 @@ export const OrderDetail = () => {
                             className="w-full p-1 px-2 outline-none"
                             placeholder="Please share your complete address"
                           /> */}
-                          <p>
-                            <strong>Delivery address:</strong> {address}
-                          </p>
+                          {address ? (
+                            <p>
+                              <strong>Delivery address:</strong> {address}
+                            </p>
+                          ) : (
+                            <p className="text-red-500">Please enter address</p>
+                          )}
                         </div>
                       </div>
                     </div>
