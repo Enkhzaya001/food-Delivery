@@ -8,38 +8,43 @@ import { Header } from "./_components/Header";
 import { UploadImage } from "./_components/UploadImage";
 import { Hero } from "./signup/_Components/Hero";
 import { FoodProps } from "./_components/CardContainer"; // reuse type from CardContainer
+import { FoodSkeletonList } from "./_components/FoodSkelton";
 
 export type Foods = {
   [key: string]: FoodProps[];
 };
 
 export default function Home() {
-  const [foods, setFoods] = useState<Foods | null>(null);
+  // const [foods, setFoods] = useState<Foods | null>(null);
 
-  useEffect(() => {
-    const datafetch = async () => {
-      try {
-        const result = await axios.get(
-          "https://food-delivery-be-food-delivery.onrender.com/foods"
-        );
-        setFoods(result.data.foods as Foods); // Cast to correct type
-        console.log(result.data.foods);
-      } catch (error) {
-        console.error("Failed to fetch foods:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const datafetch = async () => {
+  //     try {
+  //       const result = await axios.get(
+  //         "https://food-delivery-be-food-delivery.onrender.com/foods"
+  //       );
+  //       setFoods(result.data.foods as Foods); // Cast to correct type
+  //       console.log(result.data.foods);
+  //     } catch (error) {
+  //       console.error("Failed to fetch foods:", error);
+  //     }
+  //   };
 
-    datafetch();
-  }, []);
+  //   datafetch();
+  // }, []);
 
-  if (!foods)
-    return <div className="text-center mt-10 text-gray-400">Loading...</div>;
+  // if (!foods)
+  //   return (
+  //     <div className="text-center mt-10 text-gray-400">
+  //       <FoodSkeletonList />
+  //     </div>
+  //   );
 
   return (
     <div>
       <Header />
       <Hero />
-      <CardContainer foods={foods} />
+      <CardContainer />
       <Footer />
       {/* <UploadImage /> */}
     </div>

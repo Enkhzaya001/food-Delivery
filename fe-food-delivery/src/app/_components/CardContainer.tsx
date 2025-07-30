@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FoodDetail } from "./foodDetail";
+import { FoodSkeletonList } from "./FoodSkelton";
+import { Foods } from "../page";
+import axios from "axios";
 
 export type FoodProps = {
   foodName: string;
@@ -18,12 +21,37 @@ type PropsType = {
   };
 };
 
-export const CardContainer = ({ foods }: PropsType) => {
+export const CardContainer = () => {
   const [foodDetail, setFoodDetail] = useState(false);
 
-  const keys = Object.keys(foods).map((key) => key.trim());
   // const keys = Object.keys(foods);
 
+  const [foods, setFoods] = useState<Foods | null>(null);
+
+  useEffect(() => {
+    const datafetch = async () => {
+      try {
+        const result = await axios.get(
+          "https://food-delivery-be-food-delivery.onrender.com/foods"
+        );
+        setFoods(result.data.foods as Foods); // Cast to correct type
+        console.log(result.data.foods);
+      } catch (error) {
+        console.error("Failed to fetch foods:", error);
+      }
+    };
+
+    datafetch();
+  }, []);
+
+  if (!foods)
+    return (
+      <div className="text-center mt-10 text-gray-400">
+        <FoodSkeletonList />
+      </div>
+    );
+
+  const keys = Object.keys(foods).map((key) => key.trim());
   return (
     <div className="bg-[#404040] p-10">
       {keys.toSorted().map((category) => (
