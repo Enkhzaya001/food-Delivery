@@ -15,41 +15,78 @@ export type FoodProps = {
   _id: string;
 };
 
-type PropsType = {
-  foods: {
-    [key: string]: FoodProps[];
-  };
-};
+// type PropsType = {
+//   foods: {
+//     [key: string]: FoodProps[];
+//   };
+// };
 
 export const CardContainer = () => {
-  const [foodDetail, setFoodDetail] = useState(false);
-
-  // const keys = Object.keys(foods);
-
   const [foods, setFoods] = useState<Foods | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const datafetch = async () => {
       try {
+        setLoading(true);
+        setError(null);
+        console.log("Fetching foods from API...");
+        
         const result = await axios.get(
           "https://food-delivery-be-food-delivery.onrender.com/foods"
         );
-        setFoods(result.data.foods as Foods); // Cast to correct type
-        console.log(result.data.foods);
+        
+        console.log("API Response:", result.data);
+        console.log("Foods data:", result.data.foods);
+        
+        if (result.data.foods && typeof result.data.foods === 'object') {
+          setFoods(result.data.foods as Foods);
+          console.log("Foods set successfully:", result.data.foods);
+        } else {
+          console.error("Invalid foods data structure:", result.data);
+          setError("Invalid data structure received from API");
+        }
       } catch (error) {
         console.error("Failed to fetch foods:", error);
+        setError(error instanceof Error ? error.message : "Failed to fetch foods");
+      } finally {
+        setLoading(false);
       }
     };
 
     datafetch();
   }, []);
 
-  if (!foods)
+  if (loading) {
     return (
       <div className="text-center mt-10 text-gray-400">
         <FoodSkeletonList />
       </div>
     );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center mt-10 text-red-500">
+        <p>Error loading foods: {error}</p>
+        <button 
+          onClick={() => window.location.reload()} 
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
+          Retry
+        </button>
+      </div>
+    );
+  }
+
+  if (!foods || Object.keys(foods).length === 0) {
+    return (
+      <div className="text-center mt-10 text-gray-400">
+        <p>No foods available</p>
+      </div>
+    );
+  }
 
   const keys = Object.keys(foods).map((key) => key.trim());
   return (
