@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "./UserProvider";
-import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
