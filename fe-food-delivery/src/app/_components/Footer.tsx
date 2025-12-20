@@ -2,7 +2,7 @@ import Image from "next/image";
 export const Footer = () => {
   return (
     <div className="w-full h-[755px] bg-black  flex flex-col items-center pt-10 ">
-      <div className="w-full h-[96px] bg-red-500 font-bold text-5xl flex items-center p-4 gap-10 whitespace-nowrap text-white hover:animate-nones">
+      {/* <div className="w-full h-[96px] bg-red-500 font-bold text-5xl flex items-center p-4 gap-10 whitespace-nowrap text-white hover:animate-nones">
         <p className="animate-slide"> Fresh fast delivered </p>
         <p className="animate-slide"> Fresh fast delivered </p>
         <p className="animate-slide"> Fresh fast delivered </p>
@@ -22,7 +22,7 @@ export const Footer = () => {
             }
           `}
         </style>
-      </div>
+      </div> */}
       <div className="flex justify-center items-center mt-[76px] text-white">
         <div className="w-[1264px] h-[288px] flex p-10">
           <div>

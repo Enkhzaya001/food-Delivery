@@ -48,9 +48,8 @@ export function MenuSection() {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Category Buttons */}
       <div>
-        <p className="text-2xl font-semibold mb-4">Dishes category</p>
+        <p className="text-2xl font-semibold mb-4">料理カテゴリー</p>
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setSelectedCategory("All Dishes")}
@@ -60,7 +59,7 @@ export function MenuSection() {
                 : "bg-white text-black"
             }`}
           >
-            All Dishes ({allDishes.length})
+            全料理 ({allDishes.length})
           </button>
 
           {categories.toSorted().map((cat) => (
@@ -102,7 +101,7 @@ export function MenuSection() {
                     {food.foodName}
                   </h3>
                   <span className="text-sm font-semibold">
-                    ${food.price.toFixed()}
+                    {food.price.toFixed()}円
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 line-clamp-2">

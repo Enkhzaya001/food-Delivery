@@ -36,7 +36,7 @@ export const UploadImage = () => {
   };
   return (
     <div>
-      home page
+      ホームページ
       <input type="file" onChange={fileHandler} />
       <Button onClick={imageUpload}>Upload</Button>
       <Image

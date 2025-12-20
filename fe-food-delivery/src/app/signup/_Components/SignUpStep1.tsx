@@ -40,15 +40,15 @@ export const SignUpStep1 = ({
               <ChevronLeft />
             </Button>
             <div className="flex flex-col mb-[20px]">
-              <p className="text-[32px]">Create your account</p>
-              <p className="text-gray-500">
-                Sign up to explore your favorite dishes.
+              <p className="text-[32px]">アカウントを作成</p>
+              <p className="text-gray-500 text-sm">
+                お気に入りの料理を楽しむにはアカウントを作成してください。
               </p>
             </div>
             <form>
               <div className="flex flex-col gap-3">
                 <Input
-                  placeholder="Enter your email address"
+                  placeholder="メールアドレスを入力してください"
                   {...emailInputSchema}
                 />
                 <div className="text-red-500">
@@ -61,14 +61,18 @@ export const SignUpStep1 = ({
                   className="w-full  text-white text-xl bg-zinc-300 border solid 2xl: border-zinc-400"
                   variant={"outline"}
                 >
-                  Let's go
+                  次へ
                 </Button>
               </div>
             </form>
             <div className="flex gap-5 mt-[24px] justify-center">
-              <p className="text-gray-500">Already have an account? </p>
+              <p className="text-gray-500 text-sm">
+                すでにアカウントをお持ちの方はこちら?{" "}
+              </p>
               <Link href={"./login"}>
-                <button className="text-blue-400 cursor-pointer">Log in</button>
+                <button className="text-blue-400 cursor-pointer">
+                  ログイン
+                </button>
               </Link>
             </div>
           </div>

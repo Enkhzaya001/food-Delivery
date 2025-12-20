@@ -24,14 +24,12 @@ export function CheckOutDialog({ CloseOrderCard, checkOutSubmit }: CheckProps) {
           onClick={checkOutSubmit}
           className=" rounded-full w-2/3 bg-red-500 p-5 text-xl"
         >
-          Check out
+          注文を確定する
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>
-            Your order has been successfully placed !
-          </AlertDialogTitle>
+          <AlertDialogTitle>ご注文が正常に完了しました!</AlertDialogTitle>
           <AlertDialogDescription asChild>
             <div className="flex flex-col justify-center items-center">
               <Image
@@ -49,7 +47,7 @@ export function CheckOutDialog({ CloseOrderCard, checkOutSubmit }: CheckProps) {
               onClick={CloseOrderCard}
               className="rounded-full w-[188px]"
             >
-              Back to home
+              ホームに戻る
             </AlertDialogCancel>
           </div>
         </AlertDialogFooter>

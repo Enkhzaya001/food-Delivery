@@ -31,22 +31,22 @@ const AccountSignUpUser = () => {
   };
 
   return (
-    <div className=" mt-40 mr-[45px] h-[100px]  absolute z-1 p-2 rounded-2xl bg-gradient-to-br from-red-500 to-black  ">
-      <div className="text-center text-[15px] mt-1 p-2">
-        Don't have an account ?
+    <div className=" mt-40 mr-25  absolute z-1 p-2 rounded-2xl bg-gradient-to-br from-red-500 to-black  ">
+      <div className="text-center text-sm mt-1 p-2">
+        アカウントをお持ちの方はログイン ?
       </div>
       <div className="flex justify-center gap-2 p-2">
         <Button
           onClick={handleBackSignup}
           className="w-2/5 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition"
         >
-          Sign up
+          サインアップ
         </Button>
         <Button
           onClick={handleBackLogin}
           className="w-2/5 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition"
         >
-          Log in
+          ログイン
         </Button>
       </div>
     </div>
@@ -91,7 +91,7 @@ const AccountLoggedUser = () => {
           onClick={logOut}
           className=" p-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-gray-100 transition"
         >
-          Log out
+          ログアウト
         </Button>
       </div>
     </div>

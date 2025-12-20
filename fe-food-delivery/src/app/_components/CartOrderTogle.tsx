@@ -23,14 +23,14 @@ export default function CartOrderToggle({
           value="current"
           className="px-4 py-2 text-sm flex-1/2 data-[state=on]:bg-red-600 data-[state=on]:text-white bg-[#F3F4F6]"
         >
-          Cart
+          カート
         </ToggleGroupItem>
 
         <ToggleGroupItem
           value="history"
           className="px-4 py-2 text-sm flex-1/2 data-[state=on]:bg-red-600 data-[state=on]:text-white bg-[#F3F4F6]"
         >
-          Order
+          注文履歴
         </ToggleGroupItem>
       </ToggleGroup>
     </div>

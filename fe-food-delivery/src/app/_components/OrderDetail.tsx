@@ -141,7 +141,7 @@ export const OrderDetail = () => {
           <SheetTitle></SheetTitle>
           <div className="flex gap-2 items-center p-2">
             <ShoppingCart color="white" size={25} />
-            <p className="text-white text-xl font-semibold">Order detail</p>
+            <p className="text-white text-xl font-semibold">注文詳細</p>
           </div>
           <div className="w-full">
             <CartOrderToggle
@@ -156,7 +156,7 @@ export const OrderDetail = () => {
               ) : (
                 <div>
                   <div className="  bg-white flex flex-col justify-between rounded-sm m-2">
-                    <p className="text-2xl p-2">My cart</p>
+                    <p className="text-2xl p-2">私のカート</p>
                     <div>
                       {cart.map((item, index) => (
                         <div key={index}>
@@ -177,7 +177,7 @@ export const OrderDetail = () => {
                       ))}
                       <div className=" p-2 w-full ">
                         <h1 className="text-3xl text-gray-500 p-1">
-                          Delivery location
+                          配送先住所
                         </h1>
                         <div className="h-[80px] border border-solid border-gray-300 rounded-sm">
                           {/* <input
@@ -186,30 +186,32 @@ export const OrderDetail = () => {
                           /> */}
                           {address ? (
                             <p>
-                              <strong>Delivery address:</strong> {address}
+                              <strong>配送先住所:</strong> {address}
                             </p>
                           ) : (
-                            <p className="text-red-500">Please enter address</p>
+                            <p className="text-red-500">
+                              住所を入力してください
+                            </p>
                           )}
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className=" bg-white rounded-sm m-2 ">
-                    <p className="text-2xl text-gray-500 p-2">Payment info</p>
+                    <p className="text-2xl text-gray-500 p-2">支払い情報</p>
                     <div>
                       <div>
                         <div className="flex justify-between p-2">
-                          <p>Items</p>
+                          <p>商品</p>
                           {cart.reduce(
                             (total, item) => total + item.price * item.addcount,
                             0
                           )}
-                          ₮
+                          円
                         </div>
                         <div className="flex justify-between p-2">
-                          <p>Shipping</p>
-                          <p>free</p>
+                          <p>配送</p>
+                          <p>無料</p>
                         </div>
                         <div className="w-full  border-b-2 border-dashed"></div>
                         <div className="flex justify-between p-2">
@@ -218,7 +220,7 @@ export const OrderDetail = () => {
                             (total, item) => total + item.price * item.addcount,
                             0
                           )}
-                          ₮
+                          円
                         </div>
                       </div>
                       <div className="flex justify-center p-2">

@@ -102,7 +102,7 @@ const OrderHomePage = () => {
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-black mb-5">Orders</h1>
+        <h1 className="text-2xl font-black mb-5">注文</h1>
         <StateChanger
           saveChange={saveChange}
           statusHandler={statusHandler}

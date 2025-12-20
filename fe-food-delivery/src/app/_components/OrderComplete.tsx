@@ -58,7 +58,7 @@ export const OrderComplete = () => {
           ) : (
             <>
               <div className="bg-white p-4 rounded-2xl shadow-md w-[370px] mx-auto space-y-6">
-                <h2 className="text-lg font-bold">Order history</h2>
+                <h2 className="text-lg font-bold">注文履歴</h2>
                 {orderData.map((order) => (
                   <div
                     key={order._id}
@@ -66,7 +66,7 @@ export const OrderComplete = () => {
                   >
                     <div className="flex justify-between items-center">
                       <p className="font-bold text-lg">
-                        ${Number(order.totalPrice / 100).toFixed(2)}
+                        {Number(order.totalPrice / 100).toFixed(2)}円
                         <span className="text-gray-500 text-sm">
                           #{order._id.slice(-5)}
                         </span>

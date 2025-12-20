@@ -39,7 +39,7 @@ export function LoginDialog() {
         <DialogHeader>
           <div className="flex items-center justify-between ml-20">
             <DialogTitle className="font-semibold text-2xl">
-              You need to log in first
+              まずログインしてください。
             </DialogTitle>
             <DialogClose asChild>
               <Button type="button" variant="secondary" className="text-xl">
@@ -64,16 +64,14 @@ export function LoginDialog() {
                   onClick={handleBackLogin}
                   value="current"
                   className="px-4 py-2 text-sm flex-1/2 data-[state=on]:bg-black data-[state=on]:text-white"
-                >
-                  Log in
-                </ToggleGroupItem>
-
+                ></ToggleGroupItem>
+                ログイン
                 <ToggleGroupItem
                   onClick={handleBackSignup}
                   value="history"
                   className="px-4 py-2 text-sm flex-1/2 data-[state=on]:bg-black data-[state=on]:text-white bg-[#F3F4F6]"
                 >
-                  Sign up
+                  サインアップ
                 </ToggleGroupItem>
               </ToggleGroup>
             </div>

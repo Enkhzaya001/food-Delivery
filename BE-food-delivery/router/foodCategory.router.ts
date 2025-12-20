@@ -5,5 +5,5 @@ import { getCategories } from "../controller/foodCategory/getCategories";
 
 export const foodCategoryRouter = Router();
 
-foodCategoryRouter.post("/createCategory", tokenChecker, createCategory);
+foodCategoryRouter.post("/createCategory", createCategory);
 foodCategoryRouter.get("/categories", getCategories);

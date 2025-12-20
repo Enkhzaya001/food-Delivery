@@ -25,7 +25,7 @@ export const Header = () => {
       <div className="flex gap-12 p-5">
         <div className="flex justify-between items-center w-[350px] h-[36px] bg-white rounded-full p-2 gap-2">
           <MapPin color="red" size={26} />
-          <p className="text-red-500 whitespace-nowrap">Delivery address:</p>
+          <p className="text-red-500 whitespace-nowrap">配達先住所:</p>
           <DeliveryAddress />
           <ChevronRight size={26} />
         </div>

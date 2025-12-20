@@ -110,12 +110,12 @@ export function FoodsEdit({
       </DialogTrigger>
       <DialogContent className="sm:max-w-[480px]">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold">Dishes info</DialogTitle>
+          <DialogTitle className="text-xl font-bold"></DialogTitle>
         </DialogHeader>
         <form>
           <div className="grid gap-4 py-2">
             <div className="grid gap-1">
-              <Label htmlFor="name">Dish name</Label>
+              <Label htmlFor="name">料理名</Label>
               <Input
                 id="name"
                 value={foodNameVal}
@@ -148,7 +148,7 @@ export function FoodsEdit({
               </SelectContent>
             </Select>
             <div className="grid gap-1">
-              <Label htmlFor="ingredients">Ingredients</Label>
+              <Label htmlFor="ingredients">材料</Label>
               <textarea
                 id="ingredients"
                 value={foodIngredients}
@@ -157,7 +157,7 @@ export function FoodsEdit({
               />
             </div>
             <div className="grid gap-1">
-              <Label htmlFor="price">Price</Label>
+              <Label htmlFor="price">価格</Label>
               <Input
                 id="price"
                 type="number"
@@ -191,7 +191,7 @@ export function FoodsEdit({
                 <button ref={dialogCloseRef} style={{ display: "none" }} />
               </DialogClose>
               <DialogClose asChild>
-                <Button type="submit">Continue</Button>
+                <Button type="submit">送信</Button>
               </DialogClose>
             </div>
           </div>

@@ -49,28 +49,28 @@ export const customColums = (selectHandler: any): ColumnDef<OrderType>[] => {
     },
     {
       accessorKey: "customer",
-      header: "Customer",
+      header: "顧客",
     },
     {
       accessorKey: "food",
-      header: "Food",
+      header: "料理",
     },
     {
       accessorKey: "date",
-      header: "Date",
+      header: "日付",
     },
     {
       accessorKey: "total",
-      header: "Total",
+      header: "合計",
     },
     {
       accessorKey: "status",
-      header: "Delivery state",
+      header: "配達状況",
     },
 
     {
       accessorKey: "address",
-      header: "Delivery address",
+      header: "配達先住所",
     },
   ];
 };

@@ -89,7 +89,7 @@ export const FoodDetail = ({
     }
 
     setCart(updatedCart);
-    toast.success(" Сагсанд амжиллттай нэмлээ");
+    toast.success(" カートに正常に追加されました。");
 
     deleteCount();
     setOpen(false);
@@ -138,8 +138,8 @@ export const FoodDetail = ({
                 <div>
                   <div className="flex justify-between p-2">
                     <div>
-                      <p>Total price</p>
-                      <p className="text-2xl">{price * addcount}₮</p>
+                      <p>合計金額</p>
+                      <p className="text-2xl">{price * addcount}円</p>
                     </div>
                     <div className="flex gap-2  items-center justify-between">
                       <Button
@@ -164,7 +164,7 @@ export const FoodDetail = ({
                     type="button"
                     className="w-full rounded-2xl"
                   >
-                    Add to cart
+                    カートに追加
                   </Button>
                 </div>
               </div>

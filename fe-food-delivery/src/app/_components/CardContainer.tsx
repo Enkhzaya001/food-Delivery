@@ -32,15 +32,15 @@ export const CardContainer = () => {
         setLoading(true);
         setError(null);
         console.log("Fetching foods from API...");
-        
+
         const result = await axios.get(
           "https://food-delivery-be-food-delivery.onrender.com/foods"
         );
-        
+
         console.log("API Response:", result.data);
         console.log("Foods data:", result.data.foods);
-        
-        if (result.data.foods && typeof result.data.foods === 'object') {
+
+        if (result.data.foods && typeof result.data.foods === "object") {
           setFoods(result.data.foods as Foods);
           console.log("Foods set successfully:", result.data.foods);
         } else {
@@ -49,7 +49,9 @@ export const CardContainer = () => {
         }
       } catch (error) {
         console.error("Failed to fetch foods:", error);
-        setError(error instanceof Error ? error.message : "Failed to fetch foods");
+        setError(
+          error instanceof Error ? error.message : "Failed to fetch foods"
+        );
       } finally {
         setLoading(false);
       }
@@ -69,12 +71,12 @@ export const CardContainer = () => {
   if (error) {
     return (
       <div className="text-center mt-10 text-red-500">
-        <p>Error loading foods: {error}</p>
-        <button 
-          onClick={() => window.location.reload()} 
+        <p>料理読み込みエラー: {error}</p>
+        <button
+          onClick={() => window.location.reload()}
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-          Retry
+          再試行
         </button>
       </div>
     );
@@ -83,22 +85,24 @@ export const CardContainer = () => {
   if (!foods || Object.keys(foods).length === 0) {
     return (
       <div className="text-center mt-10 text-gray-400">
-        <p>No foods available</p>
+        <p>料理がありません</p>
       </div>
     );
   }
 
   const keys = Object.keys(foods).map((key) => key.trim());
   return (
-    <div className="bg-[#404040] p-10">
+    <div className="bg-[#360202] p-5">
       {keys.toSorted().map((category) => (
         <div key={category} className="mb-10">
-          <h2 className="pb-6 pt-5 text-white text-2xl">{category}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="pb-6 pt-5 text-white font-bold text-2xl">
+            {category}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
             {foods[category].slice(0, 6).map((food, index) => (
               <div
                 key={index}
-                className="w-full max-w-[400px] bg-white rounded-2xl flex justify-center items-center p-5"
+                className="w-full max-w-[400px] bg-red-900 rounded-2xl flex justify-center items-center p-6"
               >
                 <div className="w-full relative">
                   <Image
@@ -116,12 +120,14 @@ export const CardContainer = () => {
                     price={food.price}
                   />
                   <div className="flex justify-between items-center mt-3">
-                    <p className="text-[24px] text-red-500 font-semibold">
+                    <p className="text-[24px] text-red-100 font-semibold">
                       {food.foodName}
                     </p>
-                    <p className="text-[20px] font-semibold">{food.price}₮</p>
+                    <p className="text-[20px] font-semibold text-red-100">
+                      {food.price}円
+                    </p>
                   </div>
-                  <p className="text-gray-500 mt-1 text-sm">
+                  <p className="text-red-300 mt-1 text-sm">
                     {food.ingredients}
                   </p>
                 </div>
@@ -133,4 +139,3 @@ export const CardContainer = () => {
     </div>
   );
 };
-

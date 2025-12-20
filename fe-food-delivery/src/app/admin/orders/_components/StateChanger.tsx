@@ -32,11 +32,11 @@ export function StateChanger({
     <Dialog>
       <form>
         <DialogTrigger asChild>
-          <Button variant="secondary">Change delivery state</Button>
+          <Button variant="secondary">配達状況を変更</Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Change delivery state</DialogTitle>
+            <DialogTitle>配達状況を変更</DialogTitle>
           </DialogHeader>
           <div className="flex my-6 justify-evenly">
             <Button onClick={() => statusHandler(orderStatusType.PENDING)}>
@@ -52,7 +52,7 @@ export function StateChanger({
           <DialogFooter>
             <DialogClose asChild>
               <Button type="submit" onClick={saveChange}>
-                Save
+                変更を保存
               </Button>
             </DialogClose>
           </DialogFooter>

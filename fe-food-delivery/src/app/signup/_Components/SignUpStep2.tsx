@@ -52,22 +52,24 @@ export const SignUpStep2 = ({
               <ChevronLeft />
             </Button>
             <div className="flex flex-col mb-[20px]">
-              <p className="text-[32px]">Create a strong password</p>
-              <p className="text-gray-500">
-                Creat a strong password with letters, numbers.
+              <p className="text-[18px]">
+                安全なパスワードを作成してください。
+              </p>
+              <p className="text-gray-500 text-sm ">
+                文字と数字を組み合わせた安全なパスワードを作成してください。
               </p>
             </div>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-3">
                 <Input
-                  placeholder="Password"
+                  placeholder=" パスワードを入力してください"
                   type={showPassword ? "text" : "password"}
                   id="123"
                   {...passwordInputSchema}
                 />
                 <div className="text-red-500">{touched && errors.password}</div>
                 <Input
-                  placeholder="confirmPassword"
+                  placeholder=" パスワードを確認してください"
                   type={showPassword ? "text" : "password"}
                   {...ConfirmPasswordInputSchema}
                 />
@@ -81,7 +83,7 @@ export const SignUpStep2 = ({
                     onChange={() => setShowPassword(!showPassword)}
                     className="w-[15px] h-[15px]"
                   />
-                  <p>Show password</p>
+                  <p className="text-sm">パスワードを表示</p>
                 </div>
                 <Button
                   type="submit"
@@ -89,14 +91,18 @@ export const SignUpStep2 = ({
                   className="w-full  text-white text-xl   bg-zinc-300 border solid 2xl: border-zinc-400"
                   variant={"outline"}
                 >
-                  Let's go
+                  アカウントを作成
                 </Button>
               </div>
             </form>
             <div className="flex gap-5 mt-[24px] justify-center">
-              <p className="text-gray-500">Already have an account? </p>
+              <p className="text-gray-500 text-sm">
+                すでにアカウントをお持ちの方はこちら?{" "}
+              </p>
               <Link href={"./login"}>
-                <button className="text-blue-400 cursor-pointer">Log in</button>
+                <button className="text-blue-400 cursor-pointer">
+                  ログイン
+                </button>
               </Link>
             </div>
           </div>

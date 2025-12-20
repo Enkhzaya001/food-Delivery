@@ -72,7 +72,7 @@ export function FoodAdd({ categoryName }: Props) {
             <Plus size={20} />
           </div>
           <p className="text-sm text-center text-gray-600">
-            Add new Dish to
+            新しい料理を追加
             <span className="font-medium text-black">{categoryName}</span>
           </p>
         </div>
@@ -80,7 +80,7 @@ export function FoodAdd({ categoryName }: Props) {
 
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Add new Dish to {categoryName}</DialogTitle>
+          <DialogTitle>新しい料理を追加 {categoryName}</DialogTitle>
         </DialogHeader>
 
         <Formik
@@ -128,11 +128,11 @@ export function FoodAdd({ categoryName }: Props) {
             <Form className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-sm font-medium">Food name</label>
+                  <label className="text-sm font-medium">料理名</label>
                   <Field
                     name="foodName"
                     as={Input}
-                    placeholder="Type food name"
+                    placeholder="料理名を入力してください..."
                   />
                   <ErrorMessage
                     name="foodName"
@@ -141,7 +141,7 @@ export function FoodAdd({ categoryName }: Props) {
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-sm font-medium">Food price</label>
+                  <label className="text-sm font-medium">料理価格</label>
                   <Field name="price" as={Input} placeholder="Enter price..." />
                   <ErrorMessage
                     name="price"
@@ -152,7 +152,7 @@ export function FoodAdd({ categoryName }: Props) {
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium">Ingredients</label>
+                <label className="text-sm font-medium">材料</label>
                 <Field
                   name="ingredients"
                   as={Textarea}
@@ -166,7 +166,7 @@ export function FoodAdd({ categoryName }: Props) {
               </div>
 
               <div className="space-y-1">
-                <label className="text-sm font-medium">Food image</label>
+                <label className="text-sm font-medium">料理名</label>
                 <div className="border-2 border-dashed border-gray-300 p-4 rounded-lg bg-gray-50 text-center">
                   {imagePreview ? (
                     <img
@@ -191,7 +191,7 @@ export function FoodAdd({ categoryName }: Props) {
               <DialogFooter>
                 <DialogClose asChild>
                   <Button type="button" variant="outline">
-                    Cancel
+                    キャンセル
                   </Button>
                 </DialogClose>
                 <Button
@@ -199,7 +199,7 @@ export function FoodAdd({ categoryName }: Props) {
                   className="bg-black text-white"
                   disabled={!isValid || !dirty || isSubmitting}
                 >
-                  {isSubmitting ? "Saving..." : "Add Dish"}
+                  {isSubmitting ? "保存中..." : "料理を追加"}
                 </Button>
               </DialogFooter>
             </Form>

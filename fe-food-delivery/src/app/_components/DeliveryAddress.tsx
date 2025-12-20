@@ -27,13 +27,13 @@ export function DeliveryAddress() {
           variant="outline"
           className="outline-none !border-none text-gray-500"
         >
-          Add location
+          配達先を入力してください
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="!w-[450px] !max-w-[450px] !h-[288px]">
         <AlertDialogHeader>
           <AlertDialogTitle className="flex justify-between">
-            <p> Please write your delivery address!</p>
+            <p>配達先の住所をご入力ください !</p>
             <AlertDialogCancel
               asChild
               className="outline-none bg-none border-none hover:none"
@@ -49,15 +49,15 @@ export function DeliveryAddress() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="w-full p-1 px-2 outline-none"
-                placeholder="Please share your complete address"
+                placeholder="例: 東京都渋谷区神南1-19-11"
               />
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>キャンセル</AlertDialogCancel>
           <AlertDialogAction asChild>
-            <button onClick={handleSave}> Delivery here</button>
+            <button onClick={handleSave}> 配達先を保存</button>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

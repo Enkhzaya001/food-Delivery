@@ -11,11 +11,11 @@ export const CartEmpty = () => {
           className="m-auto"
         ></Image>
         <p className="text-xl flex justify-center text-muted-foreground">
-          Cart is empty
+          カートは空です。
         </p>
         <p className="text-sm m-auto items-center p-4 text-center">
-          Hungry? 🍔 Add some delicious dishes to your cart and satisfy your
-          cravings!
+          お腹が空きましたか？🍔
+          お気に入りの料理をカートに追加して、食欲を満たしましょう！
         </p>
       </div>
     </div>

@@ -38,7 +38,7 @@ export const OrderDetailCard = ({
               X
             </button>
           </div>
-          <p>{ingredients}</p>
+          <p className="text-sm">{ingredients}</p>
           <div className="flex justify-between items-center mt-2">
             <div className="flex gap-2 items-center ">
               <Button
@@ -58,7 +58,7 @@ export const OrderDetailCard = ({
               </Button>
             </div>
             <div>
-              <p>{price}₮</p>
+              <p>{price}円</p>
             </div>
           </div>
         </div>
