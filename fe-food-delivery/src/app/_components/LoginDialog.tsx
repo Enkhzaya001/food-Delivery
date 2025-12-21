@@ -32,13 +32,13 @@ export function LoginDialog() {
     <Dialog>
       <DialogTrigger asChild>
         <Button className=" rounded-full w-2/3 bg-red-500 p-5 text-xl">
-          Check out
+          チェックアウト
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <div className="flex items-center justify-between ml-20">
-            <DialogTitle className="font-semibold text-2xl">
+            <DialogTitle className="font-semibold text-xl">
               まずログインしてください。
             </DialogTitle>
             <DialogClose asChild>
@@ -64,8 +64,10 @@ export function LoginDialog() {
                   onClick={handleBackLogin}
                   value="current"
                   className="px-4 py-2 text-sm flex-1/2 data-[state=on]:bg-black data-[state=on]:text-white"
-                ></ToggleGroupItem>
-                ログイン
+                >
+                  {" "}
+                  ログイン
+                </ToggleGroupItem>
                 <ToggleGroupItem
                   onClick={handleBackSignup}
                   value="history"
